@@ -1,0 +1,24 @@
+At this point, you have a Flask server that is running in a Docker container, and in order for your API to function correctly, it needs to talk to a Redis server. This week, we are going to ensure that Redis is also running in a container, and use Docker to orchestrate Links to an external site.the interaction and communication of those containers, so they act in concert to form an IT service. There are multiple ways Links to an external site.to accomplish this orchestration, such as Kubernetes Links to an external site., Nomad Links to an external site., and Rancher Links to an external site.. We will be using one of the most simple methods for defining and managing a containerized service, which is to create a Docker application using Docker Compose Links to an external site..
+
+Your goal is to use infrastructure-as-code principles to define all the parts of your API, so that it is replicable, and all the manual steps you have been doing to run the service can be accomplished in a single step. Docker has published a tutorial Links to an external site.that shows how to use Compose to deploy a Python and Redis app that is structurally quite similar to yours; I recommend that you go through it as a group. In order to complete this assignment, you will need to:
+
+Learn about running multi-container apps with Docker Compose. You will need to create a YAML Links to an external site.file using the Docker compose syntax Links to an external site.to define the containers, networks, and volumes that make up your service.
+
+Demonstrate understanding of the basic compose commands Links to an external site., including:
+docker compose up 
+docker compose down 
+docker compose ps 
+docker compose logs
+docker compose stop
+docker compose run
+
+Ensure that you have the networking Links to an external site.configured correctly so that your containers can talk to each other, the Redis database is not visible outside of the internal Docker network, and you are publishing your API on a single port (4000) on the external network.
+
+Learn about logging in Docker Links to an external site., and how Docker services aggregate logs. Configure a logging driver using both the --log-driver flag on the docker run command, and also the compose syntax inside your YAML file. You can use the default json-file driver, but specify some options.
+Upon completion of this week’s project, I should be able to clone your repo, then run docker compose up from inside the main repo directory in order to successfully launch your API in a single command (that means either your YAML file will reference a public Docker image available on Docker Hub, or the YAML file will instruct Docker to build the image directly; either is fine).
+
+Your grade will be determined by:
+
+Whether I can successfully launch your service with a single docker compose up command
+The percentage of tests that your API passes from my test suite
+The record of collaboration from your GitHub repo and Slack channels
